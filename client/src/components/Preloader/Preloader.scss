@@ -1,0 +1,22 @@
+@import '../../utils/vars.scss';
+
+.preloader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 30px;
+  border-radius: 16px;
+
+  text-align: center;
+  background: $white;
+  box-shadow: $preloader-box-shadow;
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: bold;
+    color: $table-title-color;
+  }
+}

@@ -1,0 +1,128 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.table {
+  position: relative;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  width: 100%;
+  border-radius: 8px;
+
+  background-color: $white;
+  box-shadow: $table-box-shadow;
+
+  &__up-tr {
+    color: $table-title-color;
+  }
+
+  &__thead {
+    height: $table-header-height;
+    font-size: 14px;
+
+    &--scroll {
+      position: sticky;
+      top: 0%;
+      z-index: 1;
+      background-color: $white;
+      box-shadow: $table-box-shadow;
+    }
+  }
+
+  &__th {
+    font-weight: 300;
+    line-height: $table-header-height;
+  }
+
+  &__th-name {
+    text-align: start;
+  }
+
+  &__th-button {
+    padding: 0;
+    font-weight: 300;
+    width: 100%;
+    border: 0;
+    background-color: $white;
+    color: $table-title-color;
+    cursor: pointer;
+    text-align: end;
+  }
+
+  &__th-button-area {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &__arrow {
+    display: block;
+    margin-right: 5px;
+    background-image: url(../../images/arrow.svg);
+    background-repeat: no-repeat;
+    height: 10px;
+    width: 10px;
+
+    &--bottom {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__tr {
+    display: table-row;
+
+    &:hover {
+      background: linear-gradient(0deg, rgba(221, 159, 66, 0.12), rgba(221, 159, 66, 0.12)), $white;
+      color: $table-hover-text-color;
+    }
+
+    &:first-child {
+      animation: box 5s linear infinite;
+
+      @keyframes box {
+        0% {
+          background: linear-gradient(0deg, rgba(221, 159, 66, 0.12), rgba(221, 159, 66, 0.12)), $white;
+          color: $table-hover-text-color;
+        }
+        20% {
+          background: $white;
+          color: $black;
+        }
+        100% {
+          background: $white;
+          color: $black;
+        }
+      }
+    }
+  }
+
+  &__player {
+    margin: 0 16px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  &__score {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: middle;
+
+    @include onDesktop {
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+
+  &__score-number {
+    margin-right: 8px;
+  }
+
+  &__person-avatar {
+    margin-right: 16px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+}
