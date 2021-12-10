@@ -21,6 +21,24 @@ const App: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const savedPlayers = localStorage.getItem('players');
+    const savedSortOrder = localStorage.getItem('sortOrder');
+
+    if (savedPlayers && savedSortOrder) {
+      const parseSavedPlayers = JSON.parse(savedPlayers);
+      const parseSortOrder = JSON.parse(savedSortOrder);
+
+      setPlayers(parseSavedPlayers);
+      setScoreSort(parseSortOrder);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('players', JSON.stringify(players));
+    localStorage.setItem('sortOrder', JSON.stringify(scoreSort));
+  }, [players, scoreSort]);
+
   const handleChangeScoreSort = () => {
     const reducePlayersScoreSort = [...players].sort((player1, player2) => (
       player2.score - player1.score
