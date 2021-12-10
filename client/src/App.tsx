@@ -5,6 +5,7 @@ import { IPlayer } from './types';
 import { Preloader } from './components/Preloader/Preloader';
 import { Table } from './components/Table/Table';
 import { Modal } from './components/Modal/Modal';
+import { Players } from './components/Context/Players';
 
 const App: React.FC = () => {
   const [players, setPlayers] = useState<IPlayer[]>([]);
@@ -68,18 +69,19 @@ const App: React.FC = () => {
 
       {players.length
         ? (
-          <Table
-            players={handleChangeScoreSort()}
-            scoreSort={scoreSort}
-            scoreButton={setScoreSort}
-            setSelectedPlayer={setSelectedPlayer}
-          />
+          <Players.Provider value={handleChangeScoreSort()}>
+            <Table
+              scoreSort={scoreSort}
+              scoreButton={setScoreSort}
+              setSelectedPlayer={setSelectedPlayer}
+            />
+          </Players.Provider>
         )
         : (
           <Preloader />
         )}
 
-      {selectedPlayer && (
+      {selectedPlayer && selectedPlayer.bio && (
         <Routes>
           <Route
             path={urlName(selectedPlayer.name)}

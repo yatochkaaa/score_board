@@ -101,15 +101,19 @@
     &:hover {
       background: linear-gradient(0deg, rgba(221, 159, 66, 0.12), rgba(221, 159, 66, 0.12)), $white;
       color: $table-hover-text-color;
+      cursor: url('../../images/cursor_hand.svg'), auto;
+    }
+
+    &:hover > .modal__button-cross {
+      fill: $table-hover-text-color;
     }
   }
 
   &__button-cross {
     display: block;
     margin-right: 10px;
-    background-image: url(../../images/cross.svg);
-    background-repeat: no-repeat;
     height: 10px;
     width: 10px;
+    transition: all $transition-duration;
   }
 }

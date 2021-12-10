@@ -1,11 +1,16 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react';
 import './Table.scss';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { IPlayer } from '../../types';
+import { Players } from '../Context/Players';
 
 interface Props {
-  players: IPlayer[];
   scoreSort: boolean;
   scoreButton: Dispatch<SetStateAction<boolean>>;
   setSelectedPlayer: Dispatch<SetStateAction<IPlayer | null>>;
@@ -13,9 +18,9 @@ interface Props {
 
 export const Table: React.FC<Props> = (props) => {
   const [theadScroll, setTheadScroll] = useState<boolean>(false);
+  const players = useContext(Players);
 
   const {
-    players,
     scoreSort,
     scoreButton,
     setSelectedPlayer,

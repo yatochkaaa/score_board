@@ -45,7 +45,6 @@
     border: 0;
     background-color: $white;
     color: $table-title-color;
-    cursor: pointer;
     text-align: end;
   }
 
@@ -56,12 +55,16 @@
   }
 
   &__arrow {
-    display: block;
+    display: none;
     margin-right: 5px;
     background-image: url(../../images/arrow.svg);
     background-repeat: no-repeat;
     height: 10px;
     width: 10px;
+
+    @include onDesktop {
+      display: block;
+    }
 
     &--bottom {
       transform: rotate(180deg);
@@ -74,21 +77,19 @@
     &:hover {
       background: linear-gradient(0deg, rgba(221, 159, 66, 0.12), rgba(221, 159, 66, 0.12)), $white;
       color: $table-hover-text-color;
+      cursor: url('../../images/cursor_hand.svg'), auto;
     }
 
     &:first-child {
-      animation: box 5s linear infinite;
+      animation: box 1s linear;
 
       @keyframes box {
-        0% {
+        from {
           background: linear-gradient(0deg, rgba(221, 159, 66, 0.12), rgba(221, 159, 66, 0.12)), $white;
           color: $table-hover-text-color;
         }
-        20% {
-          background: $white;
-          color: $black;
-        }
-        100% {
+
+        to {
           background: $white;
           color: $black;
         }

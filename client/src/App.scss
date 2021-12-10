@@ -1,14 +1,6 @@
 @import './utils/vars.scss';
 @import './utils/mixins.scss';
-
-a {
-  text-decoration: none;
-  color: $black;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
+@import './utils/normilize.scss';
 
 .App {
   margin: 60px 15px 15px;
