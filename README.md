@@ -30,7 +30,7 @@ Next commands use in Client and Server directories:
 
 ### Server directory
 * Run `npm install` to install the dependencies
-* Run `node server.js` to start the server
+* Run `npm start` to start the server
 
 ## App Tech Info:
 

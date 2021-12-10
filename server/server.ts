@@ -1,4 +1,4 @@
-const http = require('http');
+import * as http from "http"
 const faker = require('faker');
 
 http.createServer((_request, response) => {

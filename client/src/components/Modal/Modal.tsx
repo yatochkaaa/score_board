@@ -13,14 +13,17 @@ export const Modal: React.FC<Props> = ({ selectedPlayer }) => {
   const navigate = useNavigate();
 
   return ReactDom.createPortal(
-    <div
-      role="button"
-      tabIndex={0}
-      style={{ display: 'block' }}
-      onKeyPress={() => navigate('/')}
-      className="modal"
-      onClick={() => navigate('/')}
-    >
+    <>
+      <div
+        className="modal"
+        aria-label="modal"
+        role="button"
+        tabIndex={0}
+        style={{ display: 'block' }}
+        onKeyPress={() => navigate('/')}
+        onClick={() => navigate('/')}
+      />
+
       <div className="modal__window">
         <div className="modal__top-part">
           <img
@@ -67,7 +70,7 @@ export const Modal: React.FC<Props> = ({ selectedPlayer }) => {
           </Link>
         </div>
       </div>
-    </div>,
+    </>,
     portalDiv,
   );
 };
